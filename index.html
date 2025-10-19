@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Câmara de Conciliação e Mediação | Soluções Pacíficas</title>
+    <link rel="icon" href="image.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Reset Básico e Variáveis de Estilo --- */
+        :root {
+            --cor-primaria: #0a2342; /* Azul escuro */
+            --cor-secundaria: #2ca58d; /* Verde-azulado */
+            --cor-acento: #f4a261; /* Laranja/Dourado */
+            --cor-fundo: #f8f9fa;
+            --cor-texto: #333;
+            --cor-texto-claro: #ffffff;
+            --sombra-padrao: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --borda-radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            line-height: 1.6;
+            -webkit-text-size-adjust: 100%; /* Previne zoom de fontes no iOS */
+        }
+
+        /* --- Estilos Gerais --- */
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 0;
+        }
+
+        h1, h2, h3 {
+            color: var(--cor-primaria);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        /* Linha decorativa sob os títulos */
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--cor-secundaria);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        section {
+            padding: 60px 20px;
+        }
+
+        section:nth-of-type(even) {
+            background-color: #ffffff;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--cor-acento);
+            color: var(--cor-texto-claro);
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: var(--borda-radius);
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #e76f51;
+            transform: translateY(-2px);
+        }
+
+        /* --- Cabeçalho e Navegação --- */
+        .header {
+            background-color: var(--cor-texto-claro);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            width: 100%;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            text-decoration: none;
+        }
+        
+        .logo-img {
+            height: 50px; /* Ajuste a altura da sua logo aqui */
+            width: auto;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--cor-primaria);
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--cor-secundaria);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--cor-secundaria);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* --- Seção Hero (Início) --- */
+        #inicio {
+           background: linear-gradient(rgba(10, 35, 66, 0.7), rgba(10, 35, 66, 0.7)), url('https://placehold.co/1200x800/0a2342/ffffff?text=Justiça+e+Equilíbrio') no-repeat center center/cover;
+            color: var(--cor-texto-claro);
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            color: var(--cor-texto-claro);
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        /* --- Seção Sobre Nós --- */
+        #sobre .container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .sobre-texto {
+            flex: 1;
+        }
+
+        .sobre-texto h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .sobre-imagem {
+            flex: 1;
+            max-width: 450px;
+        }
+
+        .sobre-imagem img {
+            width: 100%;
+            border-radius: var(--borda-radius);
+            box-shadow: var(--sombra-padrao);
+        }
+
+        /* --- Seção Serviços --- */
+        .servicos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .servico-card {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: var(--borda-radius);
+            box-shadow: var(--sombra-padrao);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .servico-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .servico-icone {
+            font-size: 3rem;
+            color: var(--cor-secundaria);
+            margin-bottom: 20px;
+        }
+        
+        .servico-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .servico-card p {
+            font-size: 1rem;
+        }
+        
+        /* --- Seção Preços --- */
+        #precos {
+            background-color: #ffffff;
+        }
+
+        .precos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            align-items: stretch;
+        }
+
+        .preco-card {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: var(--borda-radius);
+            box-shadow: var(--sombra-padrao);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid #eee;
+        }
+
+        .preco-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .preco-header {
+            margin-bottom: 25px;
+        }
+
+        .preco-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--cor-primaria);
+        }
+
+        .preco-valor {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--cor-secundaria);
+            margin-bottom: 5px;
+        }
+        
+        .preco-valor span {
+            display: inline-block;
+        }
+
+        .preco-descricao {
+            font-style: italic;
+            color: #777;
+        }
+
+        .preco-features {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        .preco-features li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .preco-features li::before {
+            content: '✔';
+            color: var(--cor-secundaria);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .preco-card.popular {
+            border-color: var(--cor-acento);
+            transform: scale(1.05);
+            position: relative;
+        }
+        
+        .preco-card.popular::before {
+            content: 'MAIS PROCURADO';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--cor-acento);
+            color: var(--cor-texto-claro);
+            padding: 5px 15px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border-radius: 20px;
+        }
+
+        /* --- Seção Agendamento --- */
+        #agendamento {
+            background-color: var(--cor-fundo);
+        }
+        .agendamento-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: var(--borda-radius);
+            box-shadow: var(--sombra-padrao);
+        }
+        .calendario-container h3, .pagamento-container h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .calendario-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .calendario-header button {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--cor-primaria);
+        }
+        #mes-ano {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        .calendario-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            text-align: center;
+        }
+        .calendario-grid div {
+            padding: 10px;
+            border-radius: var(--borda-radius);
+            cursor: pointer;
+        }
+        .dia-semana {
+            font-weight: 700;
+            color: var(--cor-secundaria);
+        }
+        .dia:hover {
+            background-color: #e0e0e0;
+        }
+        .dia.selected {
+            background-color: var(--cor-primaria);
+            color: var(--cor-texto-claro);
+        }
+        .dia.disabled {
+            color: #ccc;
+            cursor: not-allowed;
+        }
+        .horarios-container { margin-top: 20px; }
+        .horarios-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        .horario {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: var(--borda-radius);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .horario:hover { background-color: #e0e0e0; }
+        .horario.selected {
+            background-color: var(--cor-primaria);
+            color: var(--cor-texto-claro);
+            border-color: var(--cor-primaria);
+        }
+        #resumo-agendamento {
+            background-color: var(--cor-fundo);
+            padding: 15px;
+            border-radius: var(--borda-radius);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .pagamento-opcoes label {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: var(--borda-radius);
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        .pagamento-opcoes input[type="radio"] { margin-right: 10px; }
+        .detalhes-pagamento { display: none; margin-top: 20px; }
+        .form-row { display: flex; gap: 10px; }
+        .form-row .form-group { flex: 1; }
+        #pix-info img {
+            display: block;
+            margin: 15px auto;
+        }
+
+        /* --- Modal de Confirmação --- */
+        .modal {
+            display: none; /* Oculto por padrão */
+            position: fixed; /* Fica fixo na tela */
+            z-index: 2000; /* Fica sobre todo o conteúdo */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5); /* Fundo escurecido */
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 30px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: var(--borda-radius);
+            text-align: center;
+            position: relative;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0; transform: scale(0.9);}
+            to {opacity: 1; transform: scale(1);}
+        }
+
+        .modal-close-btn {
+            color: #aaa;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .modal-close-btn:hover,
+        .modal-close-btn:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+
+        /* --- Seção Processo --- */
+        .processo-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .processo-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background-color: #ddd;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-content {
+            width: 45%;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: var(--borda-radius);
+            box-shadow: var(--sombra-padrao);
+        }
+        
+        .timeline-ponto {
+            width: 25px;
+            height: 25px;
+            background: var(--cor-secundaria);
+            border-radius: 50%;
+            border: 4px solid var(--cor-fundo);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* --- Seção Contato --- */
+        #contato .container {
+            max-width: 800px;
+        }
+        
+        .contato-wrapper {
+            display: flex;
+            gap: 40px;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: var(--borda-radius);
+            box-shadow: var(--sombra-padrao);
+        }
+
+        .contato-info {
+            flex: 1;
+        }
+        
+        .contato-info h3 {
+            margin-bottom: 20px;
+        }
+        
+        .contato-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contato-info svg {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            fill: var(--cor-secundaria);
+        }
+
+        .contato-form {
+            flex: 1.5;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: var(--borda-radius);
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* --- Botão Flutuante do WhatsApp --- */
+        .whatsapp-flutuante {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.25);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-flutuante:hover {
+            transform: scale(1.1);
+        }
+
+        /* --- Rodapé --- */
+        .footer {
+            background-color: var(--cor-primaria);
+            color: var(--cor-texto-claro);
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        /* --- Responsividade --- */
+        @media (max-width: 992px) {
+            .preco-card.popular {
+                transform: scale(1);
+            }
+            .agendamento-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 40px 15px;
+            }
+            h2 { 
+                font-size: 2rem; 
+            }
+            h3 {
+                font-size: 1.5rem;
+            }
+
+            #inicio {
+                height: 70vh;
+            }
+            .hero-content h1 { 
+                font-size: 2.2rem; 
+                line-height: 1.3;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px 15px;
+            }
+            .nav-link {
+                padding: 5px;
+            }
+            
+            #sobre .container {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .agendamento-wrapper {
+                padding: 20px;
+            }
+            .calendario-grid div {
+                padding: 8px 5px;
+                font-size: 0.9rem;
+            }
+            .horarios-grid {
+                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            }
+
+            .contato-wrapper {
+                flex-direction: column;
+                padding: 20px;
+            }
+            
+            .processo-timeline::before {
+                left: 12.5px;
+            }
+            
+            .timeline-item, .timeline-item:nth-child(even) {
+                flex-direction: row;
+                justify-content: flex-start;
+            }
+            .timeline-content {
+                width: calc(100% - 50px);
+                margin-left: 50px;
+                padding: 15px;
+            }
+            .timeline-ponto {
+                left: 12.5px;
+            }
+            
+
+            .form-row { flex-direction: column; gap: 0; }
+            
+            .whatsapp-flutuante {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header class="header">
+        <nav class="navbar">
+            <a href="#inicio" class="logo"><img src="image.png" alt="Logo da Câmara de Mediação" class="logo-img"></a>
+            <ul class="nav-menu">
+                <li><a href="#inicio" class="nav-link">Início</a></li>
+                <li><a href="#sobre" class="nav-link">Sobre Nós</a></li>
+                <li><a href="#servicos" class="nav-link">Serviços</a></li>
+                <li><a href="#precos" class="nav-link">Preços</a></li>
+                <li><a href="#agendamento" class="nav-link">Agendamento</a></li>
+                <li><a href="#processo" class="nav-link">Como Funciona</a></li>
+                <li><a href="#contato" class="nav-link">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Seção de Início (Hero) -->
+        <section id="inicio">
+            <div class="hero-content">
+                <h1>Soluções Pacíficas para Seus Conflitos</h1>
+                <p>Encontre o equilíbrio e a resolução de disputas de forma rápida, confidencial e econômica através da mediação e conciliação.</p>
+                <a href="#agendamento" class="btn">Agende sua Sessão</a>
+            </div>
+        </section>
+
+        <!-- Seção Sobre Nós -->
+        <section id="sobre">
+            <div class="container">
+                <div class="sobre-texto">
+                    <h2>Nossa Missão</h2>
+                    <h3>Facilitar o diálogo e construir pontes.</h3>
+                    <p>
+                        Acreditamos que a comunicação é a chave para a resolução de qualquer conflito. Nossa câmara foi fundada com o propósito de oferecer um ambiente neutro, seguro e colaborativo, onde as partes podem encontrar soluções mutuamente satisfatórias com o auxílio de mediadores especializados e imparciais.
+                    </p>
+                    <p>
+                        Nosso compromisso é com a ética, a confidencialidade e a busca pela justiça de forma humanizada, evitando os desgastes e custos de um processo judicial tradicional.
+                    </p>
+                </div>
+                <div class="sobre-imagem">
+                    <img src="apertodemao.jpg" alt="Equipe Especializada da Câmara de Mediação">
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Serviços -->
+        <section id="servicos">
+            <div class="container">
+                <h2>Nossas Áreas de Atuação</h2>
+                <div class="servicos-grid">
+                    <div class="servico-card">
+                        <div class="servico-icone">🤝</div>
+                        <h3>Mediação Familiar</h3>
+                        <p>Resolução de questões como divórcio, guarda de filhos, pensão alimentícia e partilha de bens de forma amigável e construtiva.</p>
+                    </div>
+                    <div class="servico-card">
+                        <div class="servico-icone">🏢</div>
+                        <h3>Mediação Empresarial</h3>
+                        <p>Solução para disputas entre sócios, conflitos contratuais, questões com fornecedores e reestruturação de acordos comerciais.</p>
+                    </div>
+                    <div class="servico-card">
+                        <div class="servico-icone">🏘️</div>
+                        <h3>Mediação Cível e Condominial</h3>
+                        <p>Conflitos de vizinhança, questões de aluguel, disputas contratuais diversas e problemas em condomínios.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Preços -->
+        <section id="precos">
+            <div class="container">
+                <h2>Nossos Planos e Preços</h2>
+                <div class="precos-grid">
+                    <!-- Card 1: Familiar -->
+                    <div class="preco-card">
+                        <div class="preco-header">
+                            <h3>Mediação Familiar</h3>
+                            <p class="preco-valor">A partir de <span>R$ 450</span></p>
+                            <p class="preco-descricao">por sessão</p>
+                        </div>
+                        <ul class="preco-features">
+                            <li>Sessões de até 1h30</li>
+                            <li>Análise documental inicial</li>
+                            <li>Ambiente sigiloso e neutro</li>
+                            <li>Redação do termo de acordo (taxa única)</li>
+                        </ul>
+                        <a href="#agendamento" class="btn">Agendar</a>
+                    </div>
+                    <!-- Card 2: Empresarial (Destaque) -->
+                    <div class="preco-card popular">
+                        <div class="preco-header">
+                            <h3>Mediação Empresarial</h3>
+                            <p class="preco-valor"><span>Sob Consulta</span></p>
+                            <p class="preco-descricao">Valores customizados</p>
+                        </div>
+                        <ul class="preco-features">
+                            <li>Para disputas societárias e contratuais</li>
+                            <li>Mediação com múltiplos participantes</li>
+                            <li>Flexibilidade de horários</li>
+                            <li>Assessoria completa para o acordo</li>
+                        </ul>
+                        <a href="#contato" class="btn">Solicitar Orçamento</a>
+                    </div>
+                    <!-- Card 3: Cível -->
+                    <div class="preco-card">
+                        <div class="preco-header">
+                            <h3>Mediação Cível</h3>
+                            <p class="preco-valor">A partir de <span>R$ 380</span></p>
+                            <p class="preco-descricao">por sessão</p>
+                        </div>
+                        <ul class="preco-features">
+                            <li>Conflitos de vizinhança e condominiais</li>
+                            <li>Questões contratuais e de aluguel</li>
+                            <li>Solução rápida e eficaz</li>
+                            <li>Redação do termo de acordo (taxa única)</li>
+                        </ul>
+                        <a href="#agendamento" class="btn">Agendar</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Agendamento -->
+        <section id="agendamento">
+            <div class="container">
+                <h2>Agende sua Sessão</h2>
+                <div class="agendamento-wrapper">
+                    <div class="calendario-container">
+                        <h3>1. Escolha a data e horário</h3>
+                        <div class="calendario">
+                            <div class="calendario-header">
+                                <button id="prev-month">◄</button>
+                                <span id="mes-ano"></span>
+                                <button id="next-month">►</button>
+                            </div>
+                            <div class="calendario-grid" id="dias-semana"></div>
+                            <div class="calendario-grid" id="calendario-dias"></div>
+                        </div>
+                        <div class="horarios-container">
+                            <h4>Horários disponíveis:</h4>
+                            <div class="horarios-grid" id="horarios-grid">
+                                <!-- Horários serão inseridos pelo JS -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pagamento-container">
+                        <h3>2. Confirmação e Pagamento</h3>
+                        <div id="resumo-agendamento">
+                            <p>Selecione uma data e horário.</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="tipo-servico">Tipo de Mediação</label>
+                            <select id="tipo-servico" name="tipo-servico">
+                                <option value="familiar">Mediação Familiar - R$ 450</option>
+                                <option value="civel">Mediação Cível - R$ 380</option>
+                                <option value="empresarial">Mediação Empresarial - Sinal R$ 500</option>
+                            </select>
+                        </div>
+                        <div id="pix-info" class="detalhes-pagamento" style="display: block; margin-top: 20px;">
+                            <p>Para pagar com PIX, escaneie o código abaixo com o aplicativo do seu banco.</p>
+                            <img src="IMG-20251019-WA0010.jpg" alt="QR Code PIX" style="width: 200px; height: 200px; object-fit: contain;">
+                            <p><strong>Valor:</strong> <span id="valor-pix">R$ 450,00</span></p>
+                            <div id="pix-copia-cola" style="margin-top: 15px;">
+                                <p style="font-size: 0.9em; margin-bottom: 5px;">Ou use a chave PIX (CPF):</p>
+                                <div style="display: flex; border: 1px solid #ccc; border-radius: 5px; padding: 5px; background: #fff;">
+                                    <input type="text" id="pix-key-input" value="589.654.758-72" readonly style="flex-grow: 1; border: none; outline: none; background: transparent; font-family: 'Inter', sans-serif;">
+                                    <button id="copiar-pix" style="background: var(--cor-secundaria); color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">Copiar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="btn-agendar-pagar" class="btn" style="width: 100%; margin-top: 20px;">Agendar e Pagar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Como Funciona -->
+        <section id="processo">
+            <div class="container">
+                <h2>O Processo de Mediação</h2>
+                <div class="processo-timeline">
+                    <!-- Item 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>1. Contato Inicial</h3>
+                            <p>Uma das partes entra em contato conosco para iniciar o procedimento. Nós convidamos a outra parte para participar da mediação.</p>
+                        </div>
+                        <div class="timeline-ponto"></div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>2. Sessão de Abertura</h3>
+                            <p>O mediador explica as regras, o sigilo e os objetivos da mediação. Cada parte tem a oportunidade de expor sua visão do conflito.</p>
+                        </div>
+                        <div class="timeline-ponto"></div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>3. Diálogo e Negociação</h3>
+                            <p>Com a ajuda do mediador, as partes dialogam, identificam seus interesses e exploram possíveis soluções para o problema.</p>
+                        </div>
+                        <div class="timeline-ponto"></div>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>4. Construção do Acordo</h3>
+                            <p>Quando as partes chegam a um consenso, o acordo é redigido em um termo, que pode ter força de título executivo extrajudicial.</p>
+                        </div>
+                        <div class="timeline-ponto"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Contato -->
+        <section id="contato">
+            <div class="container">
+                <h2>Entre em Contato</h2>
+                <div class="contato-wrapper">
+                    <div class="contato-info">
+                        <h3>Fale Conosco</h3>
+                        <p>Estamos prontos para ajudar. Preencha o formulário ou utilize um dos canais abaixo.</p>
+                        <p>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            camarafontedosaber@gmail.com
+                        </p>
+                        <p>
+                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                            (17) 99622-1623
+                        </p>
+                      
+                    </div>
+                    <form class="contato-form">
+                        <div class="form-group">
+                            <label for="nome">Seu Nome</label>
+                            <input type="text" id="contato-nome" name="nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Seu E-mail</label>
+                            <input type="email" id="contato-email" name="email" required>
+                        </div>
+                         <div class="form-group">
+                            <label for="assunto">Assunto</label>
+                            <input type="text" id="contato-assunto" name="assunto" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensagem">Descreva seu caso brevemente</label>
+                            <textarea id="contato-mensagem" name="mensagem" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal de Confirmação -->
+    <div id="modal-confirmacao" class="modal">
+        <div class="modal-content">
+            <span class="modal-close-btn">&times;</span>
+            <h3 id="modal-titulo"></h3>
+            <p id="modal-mensagem"></p>
+        </div>
+    </div>
+
+    <!-- Botão Flutuante do WhatsApp -->
+    <a href="https://wa.me/5517996221623" class="whatsapp-flutuante" target="_blank" aria-label="Fale Conosco pelo WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 28px; height: 28px; fill: white;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 221.9-99.6 221.9-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.8 0-67.6-9.5-97.2-26.7l-7-4.1-72.5 19.1 19.4-70.5-4.5-7.3c-18.4-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+    </a>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <p>&copy; 2025 Câmara de Conciliação e Mediação. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- Lógica do Calendário ---
+            const mesAnoEl = document.getElementById('mes-ano');
+            const calendarioDiasEl = document.getElementById('calendario-dias');
+            const diasSemanaEl = document.getElementById('dias-semana');
+            const prevMonthBtn = document.getElementById('prev-month');
+            const nextMonthBtn = document.getElementById('next-month');
+            const horariosGridEl = document.getElementById('horarios-grid');
+
+            let dataAtual = new Date();
+            let diaSelecionado = null;
+            let horarioSelecionado = null;
+
+            const meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+            const diasDaSemana = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
+
+            function renderizarCalendario() {
+                const ano = dataAtual.getFullYear();
+                const mes = dataAtual.getMonth();
+                mesAnoEl.textContent = `${meses[mes]} de ${ano}`;
+
+                calendarioDiasEl.innerHTML = '';
+                diasSemanaEl.innerHTML = diasDaSemana.map(dia => `<div class="dia-semana">${dia}</div>`).join('');
+                
+                const primeiroDiaDoMes = new Date(ano, mes, 1).getDay();
+                const ultimoDiaDoMes = new Date(ano, mes + 1, 0).getDate();
+                const hoje = new Date();
+
+                for (let i = 0; i < primeiroDiaDoMes; i++) {
+                    calendarioDiasEl.innerHTML += `<div></div>`;
+                }
+
+                for (let i = 1; i <= ultimoDiaDoMes; i++) {
+                    const diaEl = document.createElement('div');
+                    diaEl.textContent = i;
+                    diaEl.classList.add('dia');
+                    
+                    const dataCompleta = new Date(ano, mes, i);
+                    if (dataCompleta < hoje.setHours(0,0,0,0) || dataCompleta.getDay() === 0 || dataCompleta.getDay() === 6) { // Desabilita passados, domingos e sábados
+                        diaEl.classList.add('disabled');
+                    } else {
+                        diaEl.addEventListener('click', () => selecionarDia(i, diaEl));
+                    }
+                    calendarioDiasEl.appendChild(diaEl);
+                }
+            }
+            
+            function selecionarDia(dia, elemento) {
+                const dias = document.querySelectorAll('.dia');
+                dias.forEach(d => d.classList.remove('selected'));
+                if (!elemento.classList.contains('disabled')) {
+                    elemento.classList.add('selected');
+                    diaSelecionado = dia;
+                    renderizarHorarios();
+                    atualizarResumo();
+                }
+            }
+            
+            function renderizarHorarios() {
+                horariosGridEl.innerHTML = '';
+                const horarios = ["09:00", "10:00", "11:00", "14:00", "15:00", "16:00"];
+                horarios.forEach(hora => {
+                    const horarioEl = document.createElement('div');
+                    horarioEl.textContent = hora;
+                    horarioEl.classList.add('horario');
+                    horarioEl.addEventListener('click', () => selecionarHorario(hora, horarioEl));
+                    horariosGridEl.appendChild(horarioEl);
+                });
+            }
+            
+            function selecionarHorario(hora, elemento) {
+                const horarios = document.querySelectorAll('.horario');
+                horarios.forEach(h => h.classList.remove('selected'));
+                elemento.classList.add('selected');
+                horarioSelecionado = hora;
+                atualizarResumo();
+            }
+            
+            prevMonthBtn.addEventListener('click', () => {
+                dataAtual.setMonth(dataAtual.getMonth() - 1);
+                renderizarCalendario();
+            });
+
+            nextMonthBtn.addEventListener('click', () => {
+                dataAtual.setMonth(dataAtual.getMonth() + 1);
+                renderizarCalendario();
+            });
+
+            renderizarCalendario();
+
+            // --- Lógica do Pagamento ---
+            const resumoEl = document.getElementById('resumo-agendamento');
+            const tipoServicoEl = document.getElementById('tipo-servico');
+            const pixInfoEl = document.getElementById('pix-info');
+            const valorPixEl = document.getElementById('valor-pix');
+            const copiarPixBtn = document.getElementById('copiar-pix');
+            const pixKeyInput = document.getElementById('pix-key-input');
+            const btnAgendarPagar = document.getElementById('btn-agendar-pagar');
+
+            // --- Lógica do Modal ---
+            const modal = document.getElementById('modal-confirmacao');
+            const modalTitulo = document.getElementById('modal-titulo');
+            const modalMensagem = document.getElementById('modal-mensagem');
+            const modalCloseBtn = document.querySelector('.modal-close-btn');
+
+            function exibirModal(titulo, mensagem) {
+                modalTitulo.textContent = titulo;
+                modalMensagem.textContent = mensagem;
+                modal.style.display = 'block';
+            }
+
+            function fecharModal() {
+                modal.style.display = 'none';
+            }
+
+            modalCloseBtn.onclick = fecharModal;
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    fecharModal();
+                }
+            }
+
+            const precos = {
+                familiar: 450,
+                civel: 380,
+                empresarial: 500
+            };
+
+            function atualizarResumo() {
+                if(diaSelecionado && horarioSelecionado) {
+                    const mes = dataAtual.getMonth() + 1;
+                    const ano = dataAtual.getFullYear();
+                    resumoEl.innerHTML = `<p><strong>Sua sessão:</strong> ${diaSelecionado}/${mes}/${ano} às ${horarioSelecionado}</p>`;
+                } else {
+                     resumoEl.innerHTML = `<p>Selecione uma data e horário.</p>`;
+                }
+            }
+
+            function atualizarValorPix() {
+                const servico = tipoServicoEl.value;
+                const preco = precos[servico];
+                valorPixEl.textContent = `R$ ${preco.toFixed(2).replace('.', ',')}`;
+            }
+            
+            tipoServicoEl.addEventListener('change', atualizarValorPix);
+
+            copiarPixBtn.addEventListener('click', () => {
+                pixKeyInput.select();
+                pixKeyInput.setSelectionRange(0, 99999); // Para dispositivos móveis
+
+                try {
+                    document.execCommand('copy');
+                    copiarPixBtn.textContent = 'Copiado!';
+                    setTimeout(() => {
+                        copiarPixBtn.textContent = 'Copiar';
+                    }, 2000);
+                } catch (err) {
+                    alert('Não foi possível copiar a chave.');
+                }
+            });
+
+            btnAgendarPagar.addEventListener('click', () => {
+                if (!diaSelecionado || !horarioSelecionado) {
+                    exibirModal('Atenção!', 'Por favor, selecione uma data e um horário para o agendamento.');
+                    return;
+                }
+                
+                const servicoSelecionado = tipoServicoEl.options[tipoServicoEl.selectedIndex].text;
+                const dataFormatada = `${diaSelecionado}/${dataAtual.getMonth() + 1}/${dataAtual.getFullYear()}`;
+                const metodoPagamento = 'PIX';
+
+                const emailDestino = "camarafontedosaber@gmail.com";
+                const assunto = encodeURIComponent("Nova Solicitação de Agendamento");
+                const corpoEmail = encodeURIComponent(
+                    `Uma nova solicitação de agendamento foi realizada através do site.\n\n` +
+                    `Detalhes da Solicitação:\n` +
+                    `--------------------------------------\n` +
+                    `Serviço: ${servicoSelecionado}\n` +
+                    `Data: ${dataFormatada}\n` +
+                    `Horário: ${horarioSelecionado}\n` +
+                    `Forma de Pagamento: ${metodoPagamento}\n` +
+                    `--------------------------------------\n\n` +
+                    `Por favor, entre em contato com o cliente para finalizar a confirmação.`
+                );
+
+                window.location.href = `mailto:${emailDestino}?subject=${assunto}&body=${corpoEmail}`;
+
+                exibirModal('Quase lá!', 'Seu programa de e-mail foi aberto com os detalhes do agendamento. Por favor, revise e clique em "Enviar" para confirmar sua solicitação.');
+            });
+
+            // --- Lógica do Formulário de Contato ---
+            const contatoForm = document.querySelector('.contato-form');
+            contatoForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const nome = document.getElementById('contato-nome').value;
+                const email = document.getElementById('contato-email').value;
+                const assuntoForm = document.getElementById('contato-assunto').value;
+                const mensagem = document.getElementById('contato-mensagem').value;
+
+                const emailDestino = "camarafontedosaber@gmail.com";
+                const assuntoEmail = encodeURIComponent(`Contato via Site: ${assuntoForm}`);
+                const corpoEmail = encodeURIComponent(
+                    `Você recebeu uma nova mensagem de contato.\n\n` +
+                    `Detalhes:\n` +
+                    `--------------------------------------\n` +
+                    `Nome: ${nome}\n` +
+                    `E-mail: ${email}\n` +
+                    `Assunto: ${assuntoForm}\n` +
+                    `--------------------------------------\n\n` +
+                    `Mensagem:\n${mensagem}`
+                );
+                
+                window.location.href = `mailto:${emailDestino}?subject=${assuntoEmail}&body=${corpoEmail}`;
+                
+                exibirModal('Ação Necessária', 'Seu programa de e-mail foi aberto para que você possa enviar sua mensagem. Por favor, clique em "Enviar".');
+
+                contatoForm.reset();
+            });
+
+            // Init
+            atualizarValorPix();
+        });
+    </script>
+
+</body>
+</html>
+
+
+
+
